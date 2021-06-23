@@ -37,8 +37,8 @@ source_suffix = '.txt'
 master_doc = 'index'
 
 # General information about the project.
-project = u'django-generic-confirmation'
-copyright = u'2009, Arne Brodowski'
+project = 'django-generic-confirmation'
+copyright = '2009, Arne Brodowski'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -172,8 +172,8 @@ htmlhelp_basename = 'django-generic-confirmationdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'django-generic-confirmation.tex', u'django-generic-confirmation Documentation',
-   u'Arne Brodowski', 'manual'),
+  ('index', 'django-generic-confirmation.tex', 'django-generic-confirmation Documentation',
+   'Arne Brodowski', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
