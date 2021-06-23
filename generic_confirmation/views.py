@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
-from forms import ConfirmationForm
+from .forms import ConfirmationForm
 
 
 

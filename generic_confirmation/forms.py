@@ -1,9 +1,8 @@
 import random
-import signals
+from . import signals
 from django import forms
-from django.db import models
-from models import DeferredAction
-from main import LONG
+from .models import DeferredAction
+from .main import LONG
 
 
 
@@ -26,7 +25,7 @@ class DeferredFormMixIn(object):
         if format is None:
             format = self.token_format
         chars, length = format
-        token = u''.join([random.choice(chars) for i in range(length)])
+        token = ''.join([random.choice(chars) for i in range(length)])
         try:
             DeferredAction.objects.get(token=token)
         except DeferredAction.DoesNotExist:
@@ -45,7 +44,7 @@ class DeferredFormMixIn(object):
         if not self.is_valid():
             raise Exception("only call save() on a form after calling is_valid().")
 
-        form_class_name = u"%s.%s" % (self.__class__.__module__,
+        form_class_name = "%s.%s" % (self.__class__.__module__,
                                       self.__class__.__name__)
 
         # we save the uncleaned data here, because form.full_clean() will
@@ -107,7 +106,7 @@ class ConfirmationForm(forms.Form):
             obj = DeferredAction.objects.get(token=self.cleaned_data['token'])
             return self.cleaned_data['token']
         except DeferredAction.DoesNotExist:
-            raise forms.ValidationError(u"wrong token") #FIXME: i18n
+            raise forms.ValidationError("wrong token") #FIXME: i18n
 
     def save(self):
         return DeferredAction.objects.confirm(token=self.cleaned_data['token'])

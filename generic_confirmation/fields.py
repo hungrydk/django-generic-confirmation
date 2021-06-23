@@ -13,9 +13,7 @@ class PickledObject(str):
 	   then it must [well, should] be a pickled one)."""
 	pass
 
-class PickledObjectField(models.Field):
-	__metaclass__ = models.SubfieldBase
-	
+class PickledObjectField(models.Field, metaclass=models.SubfieldBase):
 	def to_python(self, value):
 		if isinstance(value, PickledObject):
 			# If the value is a definite pickle; and an error is raised in de-pickling
